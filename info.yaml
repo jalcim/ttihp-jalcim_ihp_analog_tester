@@ -1,6 +1,6 @@
 # Tiny Tapeout project information
 project:
-  title:        "Additionneur 4-bit Ripple Carry"
+  title:        "test hard macro"
   author:       "jalcim"
   discord:      ""
   description:  "Additionneur 4-bit en netlist structurelle SG13G2 — premier macro durci"
