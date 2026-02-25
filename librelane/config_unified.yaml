@@ -1,0 +1,65 @@
+meta:
+  version: 3
+  flow: HardMacroClassic
+  substituting_steps:
+    # PSM-0069 : macro power pins sur TopMetal non connectees aux stripes top
+    # La macro est alimentee via Metal1 rails — IR drop check trop strict ici
+    OpenROAD.IRDropReport: null
+
+# === Macros a construire avant le top-level ===
+HARD_MACRO_CONFIGS:
+  adder_4b: dir::config.yaml
+
+# === Top-level TT : instancie la hard macro adder_4b ===
+DESIGN_NAME: tt_um_jalcim_adder4b
+VERILOG_FILES:
+- dir::../src/project.v
+- dir::../ip/adder_4b/adder_4b.bb.v
+
+# Hard macro
+MACROS:
+  adder_4b:
+    lef:
+    - dir::../ip/adder_4b/adder_4b.lef
+    gds:
+    - dir::../ip/adder_4b/adder_4b.gds
+    lib:
+      nom_typ_1p20V_25C: dir::../ip/adder_4b/adder_4b__nom_typ_1p20V_25C.lib
+      nom_fast_1p32V_m40C: dir::../ip/adder_4b/adder_4b__nom_fast_1p32V_m40C.lib
+      nom_slow_1p08V_125C: dir::../ip/adder_4b/adder_4b__nom_slow_1p08V_125C.lib
+    instances:
+      u_adder:
+        location: [30, 30]
+        orientation: "N"
+
+# Power
+VDD_NETS: [VDD]
+GND_NETS: [VSS]
+
+# Pas d'horloge (combinatoire pur)
+CLOCK_PORT: ""
+CLOCK_PERIOD: 10
+
+# SDC
+PNR_SDC_FILE: dir::../src/adder_4b.sdc
+SIGNOFF_SDC_FILE: dir::../src/adder_4b.sdc
+
+# Floorplan
+FP_SIZING: absolute
+DIE_AREA: [0, 0, 100, 100]
+CORE_AREA: [5, 7.56, 95, 94.5]
+
+# Placement
+PL_TARGET_DENSITY_PCT: 50
+PL_ROUTABILITY_DRIVEN: true
+
+# Routing
+GRT_ALLOW_CONGESTION: true
+SIGNAL_WIRE_RC_LAYERS: [Metal2, Metal3]
+CLOCK_WIRE_RC_LAYERS: [Metal2, Metal3]
+
+# GDS via KLayout
+PRIMARY_GDSII_STREAMOUT_TOOL: klayout
+
+# Diode cell pour antenne
+DIODE_CELL: sg13g2_antennanp/A

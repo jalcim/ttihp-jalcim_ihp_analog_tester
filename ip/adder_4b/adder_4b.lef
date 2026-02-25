@@ -1,0 +1,192 @@
+VERSION 5.7 ;
+  NOWIREEXTENSIONATPIN ON ;
+  DIVIDERCHAR "/" ;
+  BUSBITCHARS "[]" ;
+MACRO adder_4b
+  CLASS BLOCK ;
+  FOREIGN adder_4b ;
+  ORIGIN 0.000 0.000 ;
+  SIZE 40.000 BY 40.000 ;
+  PIN VDD
+    DIRECTION INOUT ;
+    USE POWER ;
+    PORT
+      LAYER TopMetal1 ;
+        RECT 15.860 3.560 18.060 38.430 ;
+    END
+    PORT
+      LAYER TopMetal2 ;
+        RECT 3.360 16.280 36.960 18.480 ;
+    END
+  END VDD
+  PIN VSS
+    DIRECTION INOUT ;
+    USE GROUND ;
+    PORT
+      LAYER TopMetal1 ;
+        RECT 22.060 3.150 24.260 38.020 ;
+    END
+    PORT
+      LAYER TopMetal2 ;
+        RECT 3.360 22.480 36.960 24.680 ;
+    END
+  END VSS
+  PIN i_a[0]
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    ANTENNAGATEAREA 0.180700 ;
+    PORT
+      LAYER Metal3 ;
+        RECT 39.600 20.380 40.000 20.780 ;
+    END
+  END i_a[0]
+  PIN i_a[1]
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    ANTENNAGATEAREA 0.180700 ;
+    PORT
+      LAYER Metal3 ;
+        RECT 39.600 21.220 40.000 21.620 ;
+    END
+  END i_a[1]
+  PIN i_a[2]
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    ANTENNAGATEAREA 0.180700 ;
+    PORT
+      LAYER Metal3 ;
+        RECT 0.000 20.380 0.400 20.780 ;
+    END
+  END i_a[2]
+  PIN i_a[3]
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    ANTENNAGATEAREA 0.180700 ;
+    PORT
+      LAYER Metal3 ;
+        RECT 0.000 21.220 0.400 21.620 ;
+    END
+  END i_a[3]
+  PIN i_b[0]
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    ANTENNAGATEAREA 0.180700 ;
+    PORT
+      LAYER Metal3 ;
+        RECT 39.600 22.060 40.000 22.460 ;
+    END
+  END i_b[0]
+  PIN i_b[1]
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    ANTENNAGATEAREA 0.180700 ;
+    PORT
+      LAYER Metal3 ;
+        RECT 39.600 25.420 40.000 25.820 ;
+    END
+  END i_b[1]
+  PIN i_b[2]
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    ANTENNAGATEAREA 0.180700 ;
+    PORT
+      LAYER Metal3 ;
+        RECT 0.000 22.900 0.400 23.300 ;
+    END
+  END i_b[2]
+  PIN i_b[3]
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    ANTENNAGATEAREA 0.180700 ;
+    PORT
+      LAYER Metal3 ;
+        RECT 0.000 22.060 0.400 22.460 ;
+    END
+  END i_b[3]
+  PIN i_cin
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    ANTENNAGATEAREA 0.180700 ;
+    PORT
+      LAYER Metal3 ;
+        RECT 39.600 23.740 40.000 24.140 ;
+    END
+  END i_cin
+  PIN o_cout
+    DIRECTION OUTPUT ;
+    USE SIGNAL ;
+    ANTENNADIFFAREA 0.708600 ;
+    PORT
+      LAYER Metal3 ;
+        RECT 0.000 24.580 0.400 24.980 ;
+    END
+  END o_cout
+  PIN o_sum[0]
+    DIRECTION OUTPUT ;
+    USE SIGNAL ;
+    ANTENNADIFFAREA 0.708600 ;
+    PORT
+      LAYER Metal3 ;
+        RECT 39.600 22.900 40.000 23.300 ;
+    END
+  END o_sum[0]
+  PIN o_sum[1]
+    DIRECTION OUTPUT ;
+    USE SIGNAL ;
+    ANTENNADIFFAREA 0.708600 ;
+    PORT
+      LAYER Metal3 ;
+        RECT 39.600 24.580 40.000 24.980 ;
+    END
+  END o_sum[1]
+  PIN o_sum[2]
+    DIRECTION OUTPUT ;
+    USE SIGNAL ;
+    ANTENNADIFFAREA 0.708600 ;
+    PORT
+      LAYER Metal2 ;
+        RECT 20.440 39.600 20.840 40.000 ;
+    END
+  END o_sum[2]
+  PIN o_sum[3]
+    DIRECTION OUTPUT ;
+    USE SIGNAL ;
+    ANTENNADIFFAREA 0.708600 ;
+    PORT
+      LAYER Metal3 ;
+        RECT 0.000 23.740 0.400 24.140 ;
+    END
+  END o_sum[3]
+  OBS
+      LAYER GatPoly ;
+        RECT 3.360 3.630 36.960 37.950 ;
+      LAYER Metal1 ;
+        RECT 3.360 3.560 36.960 38.020 ;
+      LAYER Metal2 ;
+        RECT 2.775 39.390 20.230 39.600 ;
+        RECT 21.050 39.390 37.545 39.600 ;
+        RECT 2.775 3.635 37.545 39.390 ;
+      LAYER Metal3 ;
+        RECT 0.400 26.030 39.600 37.900 ;
+        RECT 0.400 25.210 39.390 26.030 ;
+        RECT 0.400 25.190 39.600 25.210 ;
+        RECT 0.610 24.370 39.390 25.190 ;
+        RECT 0.400 24.350 39.600 24.370 ;
+        RECT 0.610 23.530 39.390 24.350 ;
+        RECT 0.400 23.510 39.600 23.530 ;
+        RECT 0.610 22.690 39.390 23.510 ;
+        RECT 0.400 22.670 39.600 22.690 ;
+        RECT 0.610 21.850 39.390 22.670 ;
+        RECT 0.400 21.830 39.600 21.850 ;
+        RECT 0.610 21.010 39.390 21.830 ;
+        RECT 0.400 20.990 39.600 21.010 ;
+        RECT 0.610 20.170 39.390 20.990 ;
+        RECT 0.400 3.680 39.600 20.170 ;
+      LAYER Metal4 ;
+        RECT 16.040 3.635 24.080 37.945 ;
+      LAYER Metal5 ;
+        RECT 15.995 3.470 24.125 38.110 ;
+  END
+END adder_4b
+END LIBRARY
+
